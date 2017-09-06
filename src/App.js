@@ -18,6 +18,15 @@ class BooksApp extends Component {
     })
   }
 
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then((res) => {
+      book.shelf = shelf
+      const bookList = this.state.books.filter((e) => e.id !== book.id)
+      bookList.push(book)
+      this.setState({ books: bookList })
+    })
+  }
+
   render() {
 
     const { books } = this.state
@@ -27,11 +36,13 @@ class BooksApp extends Component {
         <Route exact path='/' render={() => (
           <BookShelves 
             books={ books }
+            changeShelf={ this.changeShelf }
           />
         )}/>
         <Route exact path='/search' render={() => (
           <SearchBooks
             books={ books }
+            changeShelf={ this.changeShelf }
           />
         )}/>
       </div>
