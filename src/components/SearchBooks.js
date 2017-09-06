@@ -32,6 +32,11 @@ class SearchBooks extends Component {
     const { books, changeShelf } = this.props
     const { query, searchResults } = this.state
 
+    const getShelf = (books, id) => {
+      const book = books.find(b => b.id === id)
+      return (book && book.shelf) ? book.shelf : 'none'
+    }
+
     if(!searchResults) {
       return(<div>Loading...</div>)
     }
@@ -66,7 +71,10 @@ class SearchBooks extends Component {
                   <div className="book-top">
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${e.imageLinks.thumbnail})`}}></div>
                       <div className="book-shelf-changer">
-                        <select>
+                        <select
+                          defaultValue={getShelf(books, e.id)}
+                          onChange={(event) => changeShelf(e, event.target.value)}
+                        >
                           <option value="none" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>
