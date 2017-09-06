@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../BooksAPI'
 import escapeRegExp from 'escape-string-regexp'
-
+import PropTypes from 'prop-types'
 
 class SearchBooks extends Component {
 
@@ -22,9 +22,14 @@ class SearchBooks extends Component {
     this.getSearchResults()
   }
 
+  static propTypes = {
+    books: PropTypes.array.isRequired,
+    changeShelf: PropTypes.func.isRequired
+  }
+
   render() {
 
-    const { books } = this.props
+    const { books, changeShelf } = this.props
     const { query, searchResults } = this.state
 
     if(!searchResults) {

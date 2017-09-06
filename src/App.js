@@ -5,7 +5,6 @@ import './App.css'
 import BookShelves from './components/BookShelves'
 import SearchBooks from './components/SearchBooks'
 
-
 class BooksApp extends Component {
  
   state = {
