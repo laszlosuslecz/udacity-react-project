@@ -42,5 +42,6 @@ The backend API uses a fixed set of cached search results and is limited to this
 
 ### Tasks
 
+- [ ] restructure components
 - [ ] implement testing
 - [ ] publish on surge
