@@ -4,6 +4,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelves from './components/BookShelves'
 import SearchBooks from './components/SearchBooks'
+import NoMatch from './components/NoMatch'
 
 class BooksApp extends Component {
  
@@ -32,18 +33,21 @@ class BooksApp extends Component {
 
     return (
       <div className="app">
-        <Route exact path='/' render={() => (
-          <BookShelves 
-            books={ books }
-            changeShelf={ this.changeShelf }
-          />
-        )}/>
-        <Route exact path='/search' render={() => (
-          <SearchBooks
-            books={ books }
-            changeShelf={ this.changeShelf }
-          />
-        )}/>
+        <Switch>
+          <Route exact path='/' render={() => (
+            <BookShelves 
+              books={ books }
+              changeShelf={ this.changeShelf }
+            />
+          )}/>
+          <Route exact path='/search' render={() => (
+            <SearchBooks
+              books={ books }
+              changeShelf={ this.changeShelf }
+            />
+          )}/>
+          <Route component={ NoMatch } />
+        </Switch>
       </div>
     )
   }

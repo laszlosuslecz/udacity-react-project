@@ -42,7 +42,7 @@ The backend API uses a fixed set of cached search results and is limited to this
 
 ### Tasks
 
-- [ ] create 404 error page
+- [x] create 404 error page
 - [ ] test authors
 - [ ] restructure components
 - [ ] implement testing
