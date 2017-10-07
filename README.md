@@ -7,6 +7,8 @@ This app was built for the Udacity React Nanodegree Program. The goal is to demo
 
 Udacity provided a starter template with an API server, CSS and HTML markup.
 
+[Published on Surge](http://react-myreads.surge.sh/)
+
 
 ### To get started run this commands in your terminal
 
@@ -46,4 +48,4 @@ The backend API uses a fixed set of cached search results and is limited to this
 - [ ] test authors
 - [ ] restructure components
 - [ ] implement testing
-- [ ] publish on surge
+- [x] publish on surge
